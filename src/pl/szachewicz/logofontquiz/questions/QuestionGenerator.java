@@ -15,17 +15,28 @@ public class QuestionGenerator {
 
 	public QuestionGenerator() {
 		int images[] = new int[] {
-			R.drawable.cnn, R.drawable.cola, R.drawable.cos,
+			R.drawable.cnn, R.drawable.cocacola, R.drawable.braun,
 			R.drawable.ferrari, R.drawable.for_dummies, R.drawable.hallmark,
-			R.drawable.la_conchita, R.drawable.nivea, R.drawable.sally,
-			R.drawable.yahoo
+			R.drawable.la_conchita, R.drawable.nivea, R.drawable.sega,
+			R.drawable.yahoo, R.drawable.compaq, R.drawable.disc,
+			R.drawable.eurobusiness, R.drawable.heineken, R.drawable.ibm,
+			R.drawable.instagram, R.drawable.la_conchita, R.drawable.nec,
+			R.drawable.nickelodeon, R.drawable.nintendo, R.drawable.pacman,
+			R.drawable.pepsi, R.drawable.puma, R.drawable.snickers,
+			R.drawable.the_beatles, R.drawable.twitter, R.drawable.ubuntu,
+			R.drawable.vespa, R.drawable.vimeo, R.drawable.walt_disney,
+			R.drawable.hollywood, R.drawable.playstation,
 		};
-		
+
 		String answers[] = new String[] {
-			"CNN", "Coca-cola", "Cos", "Ferrari", "For dummies",
-			"Hallmark", "La Conchita", "Nivea", "Sally", "Yahoo"
+			"CNN", "Coca-cola", "Braun", "Ferrari", "For dummies", "Hallmark",
+			"La Conchita", "Nivea", "Sega", "Yahoo", "Compaq", "Disc",
+			"Eurobusiness", "Heineken", "IBM", "Instagram", "La Conchita", "Nec",
+			"Nickelodeon", "Nintendo", "Pacman", "Pepsi", "Puma", "Snickers",
+			"The Beatles", "Twitter", "Ubuntu", "Vespa", "Vimeo", "Walt Disney",
+			"Hollywood", "Playstation"
 		};
-		
+
 		for (int i = 0; i < images.length; i++) {
 			questions.add(new Question(images[i], answers[i]));
 		}
