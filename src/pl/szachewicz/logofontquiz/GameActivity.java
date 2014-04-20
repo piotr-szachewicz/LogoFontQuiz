@@ -3,8 +3,12 @@ package pl.szachewicz.logofontquiz;
 import pl.szachewicz.logofontquiz.R;
 import pl.szachewicz.logofontquiz.questions.Question;
 import pl.szachewicz.logofontquiz.questions.QuestionGenerator;
+import pl.szachewicz.logofontquiz.utils.SoundEffectPlayer;
 
 import android.app.Activity;
+import android.content.Context;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,6 +25,8 @@ public class GameActivity extends Activity implements OnClickListener {
 	private QuestionGenerator questionGenerator = new QuestionGenerator();
 	private Question currentQuestion;
 
+	private SoundEffectPlayer soundEffectPlayer;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,6 +36,8 @@ public class GameActivity extends Activity implements OnClickListener {
 		answerEditText = (EditText) findViewById(R.id.answerEditText);
 		submitAnswerButton = (Button) findViewById(R.id.submitAnswerButton);
 		submitAnswerButton.setOnClickListener(this);
+
+		soundEffectPlayer = new SoundEffectPlayer(getApplicationContext());
 	}
 	
 	@Override
@@ -50,8 +58,10 @@ public class GameActivity extends Activity implements OnClickListener {
 		String toastText;
 		if(response.equalsIgnoreCase(currentQuestion.getAnswer())) {
 			toastText = getResources().getString(R.string.positive_feedback);
+			soundEffectPlayer.playSuccess();
 		} else {
 			toastText = getResources().getString(R.string.negative_feedback, currentQuestion.getAnswer());
+			soundEffectPlayer.playFailure();
 		}
 		Toast toast = Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_SHORT);
 		toast.show();
